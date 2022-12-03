@@ -13,9 +13,8 @@ const UserController = {
             const newUser = await new UserModel(data)
             const result = await newUser.save()
             res.status(201).json(result)
-            console.log(result)
+           
         } catch (error) {
-            console.log(error)
             res.status(404).json({message:error.message})
         }
     }
@@ -24,7 +23,6 @@ const UserController = {
       try {
         const allUser = await UserModel.find();
         res.status(201).json(allUser)
-        console.log(allUser)
       } catch (error) {
         res.status(404).json({message:error.message})
       }
@@ -33,7 +31,6 @@ const UserController = {
         try {
             const result = await UserModel.findById(req.params.id);
             res.json(result);
-            console.log(result);
         } catch (error) {
             res.status(404).json({message:error.message})
         }
